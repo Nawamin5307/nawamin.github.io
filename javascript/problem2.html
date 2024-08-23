@@ -7,17 +7,21 @@
 </head>
 <body>
     <script>
-        const data = [];
-        main()
+        data = [];
+        readInput()
 
-        function main() {
+        function readInput() {
             var number = prompt("Enter an integer (a negative integer to quit)");
             if(!isNaN(number) && Math.sign(number) == 1) {
-                collect_data(number);
-                main();
+                collect_data(Number(number));
+                readInput();
             }  
             else {
-                show_result();
+                if(data.length == 0) {
+                    readInput()
+                } else {
+                    displayStats();
+                }
             }
         }
 
@@ -25,17 +29,19 @@
             data.push(n)
         }
 
-        function show_result() {
+        function displayStats() {
             let max_val = Math.max(...data)
             let min_val = Math.min(...data)
-            // let sum = data.reduce((accumulator, current) => accumulator + current);
-            // var avr_val = 0;
-            let total = 0;
-            for(let i = 0; i < data.lenght; i++) {
-                total += data[i];
-            }
-            let avr_val = total / data.lenght;
+            let avr_val = find_avr()
             alert("For the list " + data + " The average is " + avr_val + " , the minimum is " + min_val + " , and the maximm is " + max_val)
+        }
+
+        function find_avr() {
+            let total = 0;
+            for(let i = 0; i < data.length; i++) {
+                total += data[i];
+                }
+            return total / data.length;
         }
 
 
