@@ -8,7 +8,7 @@
 <body>
     <script type="text/javascript">
         // alert("Enter a positive integer")
-
+        list = [];
         main();
         function main() {
             var number = prompt("Enter a positive integer");
@@ -24,9 +24,9 @@
             let result;
             for(let i = 2; i <= n; i++) {
                 if(!isPrime(i)) continue;
-                result = result + " " + i
+                list.push(i)
             }
-            alert("For N = " + n + " prime number are " + result)
+            alert("For N = " + n + " prime number are " + list)
         }
 
         function isPrime(n) {
