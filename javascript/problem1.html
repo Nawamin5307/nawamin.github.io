@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nawamin 643040530-7</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // alert("Enter a positive integer")
+
+        main();
+        function main() {
+            var number = prompt("Enter a positive integer");
+            if(!isNaN(number) && Math.sign(number) == 1 && number % 1 == 0) {
+                showPrimes(number)
+            }  
+            else {
+                main();
+            }
+        }
+        
+        function showPrimes(n) {
+            let result;
+            for(let i = 2; i < n; i++) {
+                if(!isPrime(i)) continue;
+                result = result + " " + i
+            }
+            alert("For N = " + n + " prime number are " + result)
+        }
+
+        function isPrime(n) {
+            for(let i = 2; i < n; i++) {
+                if( n % i == 0 ) return false; 
+            }
+            return true
+        }
+    </script>
+</body>
+</html>
