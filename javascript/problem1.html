@@ -22,7 +22,7 @@
         
         function showPrimes(n) {
             let result;
-            for(let i = 2; i < n; i++) {
+            for(let i = 2; i <= n; i++) {
                 if(!isPrime(i)) continue;
                 result = result + " " + i
             }
